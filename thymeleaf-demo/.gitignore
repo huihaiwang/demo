@@ -9,5 +9,5 @@ out
 .settings
 .classpath
 .project
-.idea
+.idea 
 *.iml
