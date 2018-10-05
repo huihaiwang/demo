@@ -3,7 +3,11 @@
 ### Example user template
 
 # IntelliJ project files
+
+target
+out
+.settings
+.classpath
+.project
 .idea
 *.iml
-out
-gen
