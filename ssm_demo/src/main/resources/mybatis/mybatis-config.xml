@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+	 
+	
+	<settings>
+	<!-- 开启驼峰匹配 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	
+	<!-- 类型别名 -->
+<!-- 	<typeAliases>
+	方式二: 包扫描,会将包里的所有的类型都起别名,默认别名是类型的名称,大小写不敏感
+		 <package name="com.demo.ssm.pojo"/>
+	</typeAliases> -->
+
+<!--  
+  <mappers>
+  	<mapper resource="mybatis/mapper/userMapper.xml"/>
+  </mappers> 
+   -->
+  
+
+</configuration>

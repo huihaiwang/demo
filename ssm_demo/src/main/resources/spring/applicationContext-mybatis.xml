@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+     <!-- spring整合mybatis -->
+	
+	<!-- 整合SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注入数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 读取mybatis配置文件 -->
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		
+		
+		<!-- 别名扫描 -->
+		<property name="typeAliasesPackage" value="com.demo.ssm.pojo"></property>
+		
+		<!-- 读取映射文件 -->
+		<property name="mapperLocations" value="classpath:mybatis/mapper/**/*.xml"></property>
+	</bean>
+	
+	<!-- 实例化Mapper接口的(基于Mapper产生代理对象) -->
+<!-- 	 <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" >
+       <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+       <property name="mapperInterface" value="UserMapper"></property>
+    </bean>
+	 -->
+	
+	<!-- 简化接口实例化的工作(批量) -->
+	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
+       <property name="basePackage" value="com.demo.ssm.mapper" />
+    
+    </bean>
+
+</beans>
